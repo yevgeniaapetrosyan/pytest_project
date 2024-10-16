@@ -1,11 +1,20 @@
 pipeline {
-   agent any
+    agent any
 
-   stages {
-      stage('run tests') {
-        steps{
-          sh 'python3 tests.py'
+    stages {
+        stage('Set Up Environment') {
+            steps {
+                sh '''
+                sudo apt-get update
+                sudo apt-get install -y python3 python3-pip
+                '''
+            }
         }
-      }
-   }
+
+        stage('Run tests') {
+            steps {
+                sh 'python3 tests.py'
+            }
+        }
+    }
 }
