@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Set Up Environment') {
-            steps {
-                sh 'pip3 install --user -r requirements.txt'
-            }
-        }
         stage('Run tests') {
             steps {
                 sh 'python3 tests.py'
