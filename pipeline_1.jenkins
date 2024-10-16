@@ -1,4 +1,4 @@
-git push -u -f originpipeline {
+pipeline {
    agent any
 
    stages {
@@ -12,10 +12,8 @@ git push -u -f originpipeline {
         steps{      
           bat("dir /B ${JENKINS_HOME}")
         }
+      }
 
-
-        }
-   
    stage('Test') {
      steps {
         echo 'Testing...'
@@ -27,4 +25,4 @@ git push -u -f originpipeline {
      }
    }
   }
-}
+} 
